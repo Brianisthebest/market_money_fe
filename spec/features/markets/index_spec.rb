@@ -1,25 +1,34 @@
 require 'rails_helper'
 
 RSpec.describe 'Market index page', type: :feature do
-  describe 'As a visitor' do
-    it 'I see all marked listed with their name, city, and state' do
-      markets = MarketFacade.get_markets
+  before(:each) do
+    @markets = MarketFacade.new.get_markets
+  
+    visit '/markets'
+  end
 
-      visit '/markets'
+  describe 'As a visitor' do
+    it 'I see all marked listed with their name, city, state, and a link to their own show page' do
 
       expect(page).to have_content("Markets")
       expect(page).to have_content("Name")
       expect(page).to have_content("City")
       expect(page).to have_content("State")
 
-      markets.each do |market|
-        expect(page).to have_content(market.name)
-        expect(page).to have_content(market.city)
-        expect(page).to have_content(market.state)
+      within("#market-#{@markets.first.id}") do
+        expect(page).to have_content(@markets.first.name)
+        expect(page).to have_content(@markets.first.city)
+        expect(page).to have_content(@markets.first.state)
+        expect(page).to have_link("More Info")
+      end
+
+      within("#market-#{@markets.last.id}") do
+        expect(page).to have_content(@markets.last.name)
+        expect(page).to have_content(@markets.last.city)
+        expect(page).to have_content(@markets.last.state)
+        expect(page).to have_link("More Info")
       end
     end
-
-    it 'has a button to see more info on that market that takes me to /markets/:id'
   end
 end
 

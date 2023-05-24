@@ -1,0 +1,17 @@
+<h1>Markets</h1>
+
+<table>
+  <tr>
+    <th>Name </th>
+    <th>City </th> 
+    <th>State </th>
+  </tr>
+  <% @facade.each do |market| %>
+    <tr id="market-<%= market.id %>">
+        <td><%= market.name%></td>
+        <td><%= market.city %></td><td>
+        <td><%= market.state %></td>
+        <td><%= link_to "More Info" %></td>
+    </tr>
+  <% end %>
+</table>
