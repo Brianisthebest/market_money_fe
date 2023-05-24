@@ -20,13 +20,23 @@ RSpec.describe 'Market index page', type: :feature do
         expect(page).to have_content(@markets.first.city)
         expect(page).to have_content(@markets.first.state)
         expect(page).to have_link("More Info")
+
+        click_link("More Info")
+
+        expect(current_path).to eq(market_path(@markets.first.id))
       end
+
+      visit '/markets'
 
       within("#market-#{@markets.last.id}") do
         expect(page).to have_content(@markets.last.name)
         expect(page).to have_content(@markets.last.city)
         expect(page).to have_content(@markets.last.state)
         expect(page).to have_link("More Info")
+
+        click_link("More Info")
+
+        expect(current_path).to eq(market_path(@markets.first.id))
       end
     end
   end
