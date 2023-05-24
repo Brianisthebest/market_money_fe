@@ -12,7 +12,7 @@ RSpec.describe MarketFacade do
   describe 'get_markets' do
     it 'returns an array of markets' do
       expect(@market_facade.get_markets).to be_a(Array)
-      expect(@market_facade).to all(be_a(Market))
+      expect(@market_facade.get_markets).to all(be_a(Market))
     end
   end
 end
