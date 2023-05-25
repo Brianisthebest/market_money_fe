@@ -30,4 +30,10 @@ RSpec.describe MarketFacade do
       expect(@market_facade.get_vendors(322458)).to all(be_a(Vendor))
     end
   end
+
+  describe 'single_vendor' do
+    it 'returns a single vendor' do
+      expect(@market_facade.single_vendor(55823)).to be_a(Vendor)
+    end
+  end
 end

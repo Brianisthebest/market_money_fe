@@ -21,4 +21,10 @@ RSpec.describe MarketService do
       expect(@market_service.get_vendors(322458)).to be_a(Hash)
     end
   end
+
+  describe 'single_vendor' do
+    it 'returns a single vendor' do
+      expect(@market_service.single_vendor(55823)).to be_a(Hash)
+    end
+  end
 end
