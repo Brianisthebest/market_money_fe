@@ -15,10 +15,16 @@ class MarketFacade
 
   def get_vendors(id)
     results = service.get_vendors(id)
-    
+
     results[:data].map do |result|
       Vendor.new(result)
     end
+  end
+
+  def single_vendor(id)
+    result = service.single_vendor(id)
+
+    Vendor.new(result[:data])
   end
 
   def service
