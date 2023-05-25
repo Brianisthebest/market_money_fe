@@ -20,7 +20,22 @@ RSpec.describe 'Market Show Page', type: :feature do
       end
     end
 
-    it 'I see a list of all the vendors that are at that market'
-    it 'Each vendor name is a link to that vendors show page'
+    it 'I see a list of all the vendors that are at that market as a link to their show page' do
+      expect(page).to have_content("Vendors at our Market:")
+
+      @vendors.each do |vendor|
+        within("#vendor-#{vendor.id}") do
+          expect(page).to have_link(vendor.name)
+        end
+      end
+
+      click_link(@vendors.first.name)
+      expect(current_path).to eq(vendor_path(@vendors.first.id))
+
+      visit market_path(@market.id)
+
+      click_link(@vendors.last.name)
+      expect(current_path).to eq(vendor_path(@vendors.last.id))
+    end
   end
 end
