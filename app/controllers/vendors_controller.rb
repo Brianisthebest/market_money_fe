@@ -1,5 +1,5 @@
 class VendorsController < ApplicationController
   def show
-    require 'pry'; binding.pry
+    @vendor = MarketFacade.new.single_vendor(params[:id])
   end
 end

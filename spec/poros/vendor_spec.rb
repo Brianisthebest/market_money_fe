@@ -9,7 +9,8 @@ RSpec.describe Vendor do
           name: "Vendor 1",
           contact_phone: "719-867-5309",
           credit_accepted: false,
-          description: "We sell things"
+          description: "We sell things",
+          contact_name: "Mark"
         }
       }
 
@@ -21,6 +22,7 @@ RSpec.describe Vendor do
       expect(vendor.contact_phone).to eq("719-867-5309")
       expect(vendor.credit_accepted).to eq(false)
       expect(vendor.description).to eq("We sell things")
+      expect(vendor.contact_name).to eq("Mark")
     end
   end
 end
