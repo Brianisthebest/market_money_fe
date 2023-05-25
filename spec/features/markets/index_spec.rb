@@ -36,7 +36,7 @@ RSpec.describe 'Market index page', type: :feature do
 
         click_button("More Info")
 
-        expect(current_path).to eq(market_path(@markets.first.id))
+        expect(current_path).to eq(market_path(@markets.last.id))
       end
     end
   end
