@@ -11,12 +11,15 @@ RSpec.describe 'Market Show Page', type: :feature do
   describe 'As a visitor' do
     it 'I see the markets name a readable address' do
       expect(page).to have_content(@market.name)
-      expect(page).to have_content(@market.street)
-      expect(page).to have_content(@market.city)
-      expect(page).to have_content(@market.state)
-      expect(page).to have_content(@market.zip)
+      
+      within("#market-address") do
+        expect(page).to have_content("1400 U Street NW")
+        expect(page).to have_content(@market.city)
+        expect(page).to have_content(@market.state)
+        expect(page).to have_content(@market.zip)
+      end
     end
-    
+
     it 'I see a list of all the vendors that are at that market'
     it 'Each vendor name is a link to that vendors show page'
   end
