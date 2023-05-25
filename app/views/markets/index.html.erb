@@ -8,10 +8,10 @@
   </tr>
   <% @facade.each do |market| %>
     <tr id="market-<%= market.id %>">
-        <td><%= market.name%></td>
-        <td><%= market.city %></td><td>
-        <td><%= market.state %></td>
-        <td><%= button_to "More Info", market_path(market), method: :get %></td>
+      <td><%= market.name%></td>
+      <td><%= market.city %></td><td>
+      <td><%= market.state %></td>
+      <td><%= button_to "More Info", market_path(market.id), method: :get %></td>
     </tr>
   <% end %>
 </table>

@@ -15,4 +15,11 @@ RSpec.describe MarketFacade do
       expect(@market_facade.get_markets).to all(be_a(Market))
     end
   end
+
+  describe 'single_market' do
+    it 'returns a single market' do
+      expect(@market_facade.single_market).to be_a(Market)
+      expect(@market_facade.single_market.count).to eq(1)
+    end
+  end
 end
