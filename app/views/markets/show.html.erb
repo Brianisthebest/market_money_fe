@@ -3,3 +3,10 @@
   <p><%= @market_facade.street %></p>
   <p><%= @market_facade.city %>, <%= @market_facade.state %>, <%= @market_facade.zip %></p>
 </div>
+
+<h4>Vendors at our Market:</h4>
+<% @vendors_facade.each do |vendor| %>
+  <div id="vendor-<%= vendor.id %>">
+    <p><%= link_to vendor.name, vendor_path(vendor.id) %></p>
+  </div>
+<% end %>
