@@ -104,6 +104,8 @@ GEM
     faraday-net_http (3.0.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    humanize_boolean (0.0.2)
+      i18n
     i18n (1.13.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.6)
@@ -256,6 +258,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   faraday
+  humanize_boolean
   importmap-rails
   jbuilder
   launchy
