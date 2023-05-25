@@ -7,6 +7,12 @@ class MarketFacade
     end
   end
 
+  def single_market(id)
+    result = service.single_market(id)
+
+    Market.new(result[:data])
+  end
+
   def service
     @service ||= MarketService.new
   end

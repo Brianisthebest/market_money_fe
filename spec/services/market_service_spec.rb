@@ -12,7 +12,7 @@ RSpec.describe MarketService do
 
   describe 'single_market' do
     it 'returns a single market' do
-      expect(@market_service.single_market(1)).to be_a(Hash)
+      expect(@market_service.single_market(322458)).to be_a(Hash)
     end
   end
 end

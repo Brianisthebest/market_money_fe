@@ -3,6 +3,10 @@ class MarketService
     get_url("/api/v0/markets")
   end
 
+  def single_market(id)
+    get_url("/api/v0/markets/#{id}")
+  end
+
   def get_url(url)
     response = conn.get(url)
     JSON.parse(response.body, symbolize_names: true)
