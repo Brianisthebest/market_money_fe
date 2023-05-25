@@ -23,4 +23,11 @@ RSpec.describe MarketFacade do
       expect(market).to be_a(Market)
     end
   end
+
+  describe 'get_vendors' do
+    it 'returns an array of vendors associate with the market' do
+      expect(@market_facade.get_vendors(322458)).to be_a(Array)
+      expect(@market_facade.get_vendors(322458)).to all(be_a(Vendor))
+    end
+  end
 end

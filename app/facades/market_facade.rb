@@ -13,6 +13,10 @@ class MarketFacade
     Market.new(result[:data])
   end
 
+  def get_vendors(id)
+    
+  end
+
   def service
     @service ||= MarketService.new
   end
